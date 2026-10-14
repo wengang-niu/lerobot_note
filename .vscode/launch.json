@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "lerobot-train: toy_smolvla",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "lerobot.scripts.lerobot_train",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "--policy.path=lerobot/smolvla_base",
+                "--dataset.repo_id=niuwengang123/lerobot_dataset_put_toy",
+                "--dataset.root=/home/root123/workspace/data/lerobot_dataset_put_toy",
+                "--dataset.revision=main",
+                "--dataset.streaming=false",
+                "--output_dir=/home/root123/workspace/source/lerobot/output",
+                "--job_name=toy_smolvla",
+                "--policy.device=cuda",
+                "--policy.empty_cameras=1",
+                "--rename_map={\"observation.images.top\": \"observation.images.camera1\", \"observation.images.wrist\": \"observation.images.camera2\"}",
+                "--wandb.enable=true",
+                "--wandb.project=toy_project_smolvla",
+                "--policy.push_to_hub=false",
+                "--steps=40000",
+                "--batch_size=8"
+            ]
+        }
+    ]
+}
